@@ -1,0 +1,39 @@
+{
+  "name": "cookie-muncher",
+  "version": "0.1.0",
+  "description": "Effortless cookie management",
+  "author": "Bluzzi",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "vitest --ui",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build": "tsup src/index.ts --minify --format cjs,esm --dts"
+  },
+  "homepage": "https://github.com/Bluzzi/cookie-muncher#readme",
+  "bugs": {
+    "url": "https://github.com/Bluzzi/cookie-muncher/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bluzzi/cookie-muncher.git"
+  },
+  "devDependencies": {
+    "@bluzzi/eslint-config": "^1.1.0",
+    "@types/node": "^18.15.13",
+    "@vitest/ui": "^0.30.1",
+    "eslint": "^8.39.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4",
+    "vitest": "^0.30.1"
+  },
+  "eslintConfig": {
+    "extends": "@bluzzi"
+  },
+  "tsup": {
+    "clean": true
+  }
+}
