@@ -2,8 +2,7 @@ name: Test
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
   pull_request:
     types: [opened, synchronize]
 
@@ -17,4 +16,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run Vitest
-        run: npm run test:unit
+        run: npm run test
