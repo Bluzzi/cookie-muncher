@@ -22,7 +22,7 @@ Serialize a cookie into a string.
 
 ```ts
 import type { Cookie, CookieOptions } from "cookie-muncher";
-import { serializeCookie } from "cookie-muncher";
+import { serializeCookie, CookieMaxAge } from "cookie-muncher";
 
 const cookie: Cookie = {
   name: "myCookie",
@@ -30,7 +30,7 @@ const cookie: Cookie = {
 };
 
 const options: CookieOptions = {
-  maxAge: 3600,
+  maxAge: CookieMaxAge.TwoWeeks,
   path: "/",
   secure: true,
   sameSite: "Strict",
