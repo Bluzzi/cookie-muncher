@@ -1,4 +1,5 @@
 export enum CookieMaxAge {
+  Now = -1,
   OneHour = 60 * 60, // 1 hour
   SixHours = 6 * 60 * 60, // 6 hours
   TwlveHours = 12 * 60 * 60, // 12 hours
