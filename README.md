@@ -39,7 +39,7 @@ const options: CookieOptions = {
 const serializedCookie = serializeCookie(cookie, options);
 
 console.log(serializedCookie);
-// "myCookie=myValue; Max-Age=3600; Path=/; Secure; SameSite=Strict"
+// Output: "myCookie=myValue; Max-Age=3600; Path=/; Secure; SameSite=Strict"
 ```
 
 ### `parseCookies(cookies: string): Cookie[]`
@@ -53,7 +53,7 @@ const cookies = "myCookie1=myValue1; myCookie2=myValue2";
 const parsedCookies = parseCookies(cookies);
 
 console.log(parsedCookies); 
-// [{ name: "myCookie1", value: "myValue1" }, { name: "myCookie2", value: "myValue2" }]
+// Output: [{ name: "myCookie1", value: "myValue1" }, { name: "myCookie2", value: "myValue2" }]
 ```
 
 ## License
