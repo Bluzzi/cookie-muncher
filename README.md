@@ -1,12 +1,12 @@
 # Cookie Muncher
 A lightweight and typesafe package for manipulating cookies in NodeJS and the browser.
 
-✅ Lightweight
-✅ Easy to use
-✅ Unit tested
-✅ Typesafe
-✅ Compatible with Node.js & browsers
-✅ ES module & CommonJS compatible
+✅ Lightweight  
+✅ Easy to use  
+✅ Unit tested  
+✅ Typesafe  
+✅ Compatible with NodeJS & browsers  
+✅ ES module & CommonJS compatible  
 
 ## Installation
 You can install Cookie Muncher via NPM, Yarn or PNPM.
