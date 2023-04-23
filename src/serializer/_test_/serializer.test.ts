@@ -1,80 +1,70 @@
+import { describe, expect, it } from "vitest";
+import { cookie, cookieString } from "./serializer.mock";
 import { serializeCookie } from "../serializer";
-import { describe, expect, test } from "vitest";
-import { cookie } from "./serializer.mock";
-import type { CookieOptions } from "#/types/cookie";
 
 describe("serializeCookie", () => {
-  test("should return a string with only the cookie name and value when no options are provided", () => {
-    const expected = "myCookie=myValue";
-    const result = serializeCookie(cookie, {});
-    expect(result).toEqual(expected);
+  it("should return a string with only the cookie name and value when no options are provided", () => {
+    expect(serializeCookie(cookie)).toBe(cookieString);
   });
 
-  test("should include Max-Age when provided in the options", () => {
-    const options: CookieOptions = {
+  it("should include 'Max-Age' when provided in the options", () => {
+    const result = serializeCookie(cookie, {
       maxAge: 3600
-    };
-    const expected = "myCookie=myValue; Max-Age=3600";
-    const result = serializeCookie(cookie, options);
-    expect(result).toEqual(expected);
+    });
+
+    expect(result).toBe(`${cookieString}; Max-Age=3600`);
   });
 
-  test("should include Expires when provided in the options", () => {
-    const options: CookieOptions = {
+  it("should include 'Expires' when provided in the options", () => {
+    const result = serializeCookie(cookie, {
       expires: new Date("2023-04-23T23:59:59Z")
-    };
-    const expected = "myCookie=myValue; Expires=Sat, 23 Apr 2023 23:59:59 GMT";
-    const result = serializeCookie(cookie, options);
-    expect(result).toEqual(expected);
+    });
+
+    expect(result).toBe(`${cookieString}; Expires=Sun, 23 Apr 2023 23:59:59 GMT`);
   });
 
-  test("should include Domain when provided in the options", () => {
-    const options: CookieOptions = {
+  it("should include 'Domain' when provided in the options", () => {
+    const result = serializeCookie(cookie, {
       domain: "example.com"
-    };
-    const expected = "myCookie=myValue; Domain=example.com";
-    const result = serializeCookie(cookie, options);
-    expect(result).toEqual(expected);
+    });
+
+    expect(result).toBe(`${cookieString}; Domain=example.com`);
   });
 
-  test("should include Path when provided in the options", () => {
-    const options: CookieOptions = {
+  it("should include 'Path' when provided in the options", () => {
+    const result = serializeCookie(cookie, {
       path: "/path"
-    };
-    const expected = "myCookie=myValue; Path=/path";
-    const result = serializeCookie(cookie, options);
-    expect(result).toEqual(expected);
+    });
+
+    expect(result).toBe(`${cookieString}; Path=/path`);
   });
 
-  test("should include Secure when provided in the options", () => {
-    const options: CookieOptions = {
+  it("should include 'Secure' when provided in the options", () => {
+    const result = serializeCookie(cookie, {
       secure: true
-    };
-    const expected = "myCookie=myValue; Secure";
-    const result = serializeCookie(cookie, options);
-    expect(result).toEqual(expected);
+    });
+
+    expect(result).toBe(`${cookieString}; Secure`);
   });
 
-  test("should include HttpOnly when provided in the options", () => {
-    const options: CookieOptions = {
+  it("should include 'HttpOnly' when provided in the options", () => {
+    const result = serializeCookie(cookie, {
       httpOnly: true
-    };
-    const expected = "myCookie=myValue; HttpOnly";
-    const result = serializeCookie(cookie, options);
-    expect(result).toEqual(expected);
+    });
+
+    expect(result).toBe(`${cookieString}; HttpOnly`);
   });
 
-  test("should include SameSite when provided in the options", () => {
-    const options: CookieOptions = {
+  it("should include 'SameSite' when provided in the options", () => {
+    const result = serializeCookie(cookie, {
       sameSite: "Lax"
-    };
-    const expected = "myCookie=myValue; SameSite=Lax";
-    const result = serializeCookie(cookie, options);
-    expect(result).toEqual(expected);
+    });
+
+    expect(result).toBe(`${cookieString}; SameSite=Lax`);
   });
 
-  test("should include all options when provided", () => {
-    const options: CookieOptions = {
+  it("should include all options when provided", () => {
+    const result = serializeCookie(cookie, {
       maxAge: 3600,
       expires: new Date("2023-04-23T23:59:59Z"),
       domain: "example.com",
@@ -82,13 +72,13 @@ describe("serializeCookie", () => {
       secure: true,
       httpOnly: true,
       sameSite: "Lax"
-    };
+    });
+
     const expected = [
-      "myCookie=myValue; Max-Age=3600; Expires=Sat, 23 Apr 2023 23:59:59 GMT;",
+      `${cookieString}; Max-Age=3600; Expires=Sun, 23 Apr 2023 23:59:59 GMT;`,
       "Domain=example.com; Path=/path; Secure; HttpOnly; SameSite=Lax"
     ].join(" ");
 
-    const result = serializeCookie(cookie, options);
-    expect(result).toEqual(expected);
+    expect(result).toBe(expected);
   });
 });
