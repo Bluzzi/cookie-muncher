@@ -8,10 +8,11 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsup src/index.ts --minify --format cjs,esm --dts",
     "test": "vitest --ui",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "tsup src/index.ts --minify --format cjs,esm --dts"
+    "ts:check": "tsc --noEmit"
   },
   "homepage": "https://github.com/Bluzzi/cookie-muncher#readme",
   "bugs": {
