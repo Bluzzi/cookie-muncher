@@ -78,12 +78,12 @@ domCookie.set({ name: "bar", value: "foo" }, { path: "/bar" });
 ```
 
 ```ts
-domCookie.get("foo"); 
+console.log(domCookie.get("foo")); 
 // Ouput: { name: "foo", value: "bar" }
 ```
 
 ```ts
-domCookie.getAll();
+console.log(domCookie.getAll());
 // Output: [{ name: "foo", value: "bar" }, { name: "bar", value: "foo" }]
 ```
 
