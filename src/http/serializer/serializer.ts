@@ -9,7 +9,7 @@ export function serializeCookie(cookie: Cookie, options: CookieOptions = {}): st
   if (options.maxAge) parts.push(`Max-Age=${options.maxAge}`);
   if (options.expires) parts.push(`Expires=${options.expires.toUTCString()}`);
   if (options.domain) parts.push(`Domain=${options.domain}`);
-  if (options.path) parts.push(`Path=${options.path}`);
+  parts.push(`Path=${options.path || "/"}`);
   if (options.secure) parts.push("Secure");
   if (options.httpOnly) parts.push("HttpOnly");
   if (options.sameSite) parts.push(`SameSite=${options.sameSite}`);
