@@ -1,0 +1,1 @@
+export { removeCookie } from "./remove";
