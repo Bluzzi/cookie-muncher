@@ -4,7 +4,7 @@ import { serializeCookie } from "../serializer";
 
 describe("serializeCookie", () => {
   it("should return a string with only the cookie name and value when no options are provided", () => {
-    expect(serializeCookie(cookie)).toBe(cookieString);
+    expect(serializeCookie(cookie)).toBe(`${cookieString}; Path=/`);
   });
 
   it("should include 'Max-Age' when provided in the options", () => {
@@ -12,7 +12,7 @@ describe("serializeCookie", () => {
       maxAge: 3600
     });
 
-    expect(result).toBe(`${cookieString}; Max-Age=3600`);
+    expect(result).toBe(`${cookieString}; Max-Age=3600; Path=/`);
   });
 
   it("should include 'Expires' when provided in the options", () => {
@@ -20,7 +20,7 @@ describe("serializeCookie", () => {
       expires: new Date("2023-04-23T23:59:59Z")
     });
 
-    expect(result).toBe(`${cookieString}; Expires=Sun, 23 Apr 2023 23:59:59 GMT`);
+    expect(result).toBe(`${cookieString}; Expires=Sun, 23 Apr 2023 23:59:59 GMT; Path=/`);
   });
 
   it("should include 'Domain' when provided in the options", () => {
@@ -28,7 +28,7 @@ describe("serializeCookie", () => {
       domain: "example.com"
     });
 
-    expect(result).toBe(`${cookieString}; Domain=example.com`);
+    expect(result).toBe(`${cookieString}; Domain=example.com; Path=/`);
   });
 
   it("should include 'Path' when provided in the options", () => {
@@ -44,7 +44,7 @@ describe("serializeCookie", () => {
       secure: true
     });
 
-    expect(result).toBe(`${cookieString}; Secure`);
+    expect(result).toBe(`${cookieString}; Path=/; Secure`);
   });
 
   it("should include 'HttpOnly' when provided in the options", () => {
@@ -52,7 +52,7 @@ describe("serializeCookie", () => {
       httpOnly: true
     });
 
-    expect(result).toBe(`${cookieString}; HttpOnly`);
+    expect(result).toBe(`${cookieString}; Path=/; HttpOnly`);
   });
 
   it("should include 'SameSite' when provided in the options", () => {
@@ -60,7 +60,7 @@ describe("serializeCookie", () => {
       sameSite: "Lax"
     });
 
-    expect(result).toBe(`${cookieString}; SameSite=Lax`);
+    expect(result).toBe(`${cookieString}; Path=/; SameSite=Lax`);
   });
 
   it("should include all options when provided", () => {
