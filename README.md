@@ -36,8 +36,8 @@ import type { Cookie, CookieOptions } from "cookie-muncher";
 import { httpCookie, CookieMaxAge } from "cookie-muncher";
 
 const cookie: Cookie = {
-  name: "myCookie",
-  value: "myValue",
+  name: "foo",
+  value: "bar",
 };
 
 const options: CookieOptions = {
@@ -47,7 +47,7 @@ const options: CookieOptions = {
 };
 
 console.log(httpCookie.serialize(cookie, options));
-// Output: "myCookie=myValue; Max-Age=3600; Path=/; Secure; SameSite=Strict"
+// Output: "foo=bar; Max-Age=3600; Path=/; Secure; SameSite=Strict"
 ```
 
 ### `httpCookie.parse(cookies: string): Cookie[]`
@@ -56,10 +56,39 @@ Parse a HTTP `Cookie` header string of cookies into an array of cookie objects.
 ```ts
 import { httpCookie } from "cookie-muncher";
 
-const cookies = "myCookie1=myValue1; myCookie2=myValue2";
+const cookies = "foo=bar; bar=foo";
 
 console.log(httpCookie.parse(cookies));
-// Output: [{ name: "myCookie1", value: "myValue1" }, { name: "myCookie2", value: "myValue2" }]
+// Output: [{ name: "foo", value: "bar" }, { name: "bar", value: "foo" }]
+```
+
+### `domCookie.set(cookie: Cookie, options?: CookieOptions): void`
+### `domCookie.get(name: string): Cookie | null`
+### `domCookie.getAll(): Cookie[]`
+### `domCookie.remove(name: string): void`
+Create, update, get and remove cookies from the browser (only work on DOM context).
+
+```ts
+import { domCookie } from "cookie-muncher";
+```
+
+```ts
+domCookie.set({ name: "foo", value: "bar" });
+domCookie.set({ name: "bar", value: "foo" }, { path: "/bar" });
+```
+
+```ts
+domCookie.get("foo"); 
+// Ouput: { name: "foo", value: "bar" }
+```
+
+```ts
+domCookie.getAll();
+// Output: [{ name: "foo", value: "bar" }, { name: "bar", value: "foo" }]
+```
+
+```ts
+domCookie.remove("foo");
 ```
 
 ## License
