@@ -1,4 +1,4 @@
-import type { Cookie, CookieOptions } from "#/types/cookie";
+import type { Cookie, CookieOptions } from "#/typing/cookie";
 
 /**
  * Format a string representing a cookie, useful to be able to set a cookie in a HTTP Set-Cookie header.

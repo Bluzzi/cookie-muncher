@@ -1,4 +1,4 @@
-import type { Cookie } from "#/types/cookie";
+import type { Cookie } from "#/typing/cookie";
 
 export const cookie: Cookie = {
   name: "sessionID",
