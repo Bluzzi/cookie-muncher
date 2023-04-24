@@ -12,7 +12,7 @@ export type Cookie = {
  * @property {boolean} httpOnly - Whether the cookie should only be accessible via HTTP
  * @property {"Strict" | "Lax" | "None"} sameSite - The same-site policy for the cookie
  */
-export type CookieOptions = {
+type CookieOptions = {
   maxAge?: number;
   expires?: Date;
   domain?: string;
@@ -21,3 +21,6 @@ export type CookieOptions = {
   httpOnly?: boolean;
   sameSite?: "Strict" | "Lax" | "None";
 }
+
+export type DomCookieOptions = Omit<CookieOptions, "httpOnly">;
+export type HttpCookieOptions = CookieOptions;
