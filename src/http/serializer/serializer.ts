@@ -1,9 +1,9 @@
-import type { Cookie, CookieOptions } from "#/typing/cookie";
+import type { Cookie, HttpCookieOptions } from "#/typing/cookie";
 
 /**
  * Format a string representing a cookie, useful to be able to set a cookie in a HTTP Set-Cookie header.
  */
-export function serializeCookie(cookie: Cookie, options: CookieOptions = {}): string {
+export function serializeCookie(cookie: Cookie, options: HttpCookieOptions = {}): string {
   const parts: string[] = [`${cookie.name}=${cookie.value}`];
 
   if (options.maxAge) parts.push(`Max-Age=${options.maxAge}`);

@@ -28,11 +28,11 @@ This package has two separate modules:
 - `httpCookie`: serialize and parse cookie from HTTP headers (`Cookie`, `Set-Cookie`)
 - `domCookie`: manage cookies from browser DOM (set, remove, get)
 
-### `httpCookie.serialize(cookie: Cookie, options?: CookieOptions): string`
+### `httpCookie.serialize(cookie: Cookie, options?: HttpCookieOptions): string`
 Serialize a cookie into a HTTP `Set-Cookie` header string.
 
 ```ts
-import type { Cookie, CookieOptions } from "cookie-muncher";
+import type { Cookie, HttpCookieOptions } from "cookie-muncher";
 import { httpCookie, CookieMaxAge } from "cookie-muncher";
 
 const cookie: Cookie = {
@@ -40,7 +40,7 @@ const cookie: Cookie = {
   value: "bar",
 };
 
-const options: CookieOptions = {
+const options: HttpCookieOptions = {
   maxAge: CookieMaxAge.TwoWeeks,
   secure: true,
   sameSite: "Strict",
@@ -62,7 +62,7 @@ console.log(httpCookie.parse(cookies));
 // Output: [{ name: "foo", value: "bar" }, { name: "bar", value: "foo" }]
 ```
 
-### `domCookie.set(cookie: Cookie, options?: CookieOptions): void`
+### `domCookie.set(cookie: Cookie, options?: DomCookieOptions): void`
 ### `domCookie.get(name: string): Cookie | null`
 ### `domCookie.getAll(): Cookie[]`
 ### `domCookie.remove(name: string): void`
