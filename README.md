@@ -24,12 +24,16 @@ pnpm install cookie-muncher
 ```
 
 ## Usage
-### `serializeCookie(cookie: Cookie, options?: CookieOptions): string`
+This package has two separate modules:
+- `httpCookie`: serialize and parse cookie from HTTP headers (`Cookie`, `Set-Cookie`)
+- `domCookie`: manage cookies from browser DOM (set, remove, get)
+
+### `httpCookie.serialize(cookie: Cookie, options?: CookieOptions): string`
 Serialize a cookie into a HTTP `Set-Cookie` header string.
 
 ```ts
 import type { Cookie, CookieOptions } from "cookie-muncher";
-import { serializeCookie, CookieMaxAge } from "cookie-muncher";
+import { httpCookie, CookieMaxAge } from "cookie-muncher";
 
 const cookie: Cookie = {
   name: "myCookie",
@@ -38,28 +42,23 @@ const cookie: Cookie = {
 
 const options: CookieOptions = {
   maxAge: CookieMaxAge.TwoWeeks,
-  path: "/",
   secure: true,
   sameSite: "Strict",
 };
 
-const serializedCookie = serializeCookie(cookie, options);
-
-console.log(serializedCookie);
+console.log(httpCookie.serialize(cookie, options));
 // Output: "myCookie=myValue; Max-Age=3600; Path=/; Secure; SameSite=Strict"
 ```
 
-### `parseCookies(cookies: string): Cookie[]`
+### `httpCookie.parse(cookies: string): Cookie[]`
 Parse a HTTP `Cookie` header string of cookies into an array of cookie objects.
 
 ```ts
-import { parseCookies } from "cookie-muncher";
+import { httpCookie } from "cookie-muncher";
 
 const cookies = "myCookie1=myValue1; myCookie2=myValue2";
 
-const parsedCookies = parseCookies(cookies);
-
-console.log(parsedCookies); 
+console.log(httpCookie.parse(cookies));
 // Output: [{ name: "myCookie1", value: "myValue1" }, { name: "myCookie2", value: "myValue2" }]
 ```
 
