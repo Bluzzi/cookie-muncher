@@ -25,7 +25,7 @@ pnpm install cookie-muncher
 
 ## Usage
 ### `serializeCookie(cookie: Cookie, options?: CookieOptions): string`
-Serialize a cookie into a string.
+Serialize a cookie into a HTTP `Set-Cookie` header string.
 
 ```ts
 import type { Cookie, CookieOptions } from "cookie-muncher";
@@ -50,7 +50,7 @@ console.log(serializedCookie);
 ```
 
 ### `parseCookies(cookies: string): Cookie[]`
-Parse a string of cookies into an array of cookie objects.
+Parse a HTTP `Cookie` header string of cookies into an array of cookie objects.
 
 ```ts
 import { parseCookies } from "cookie-muncher";
