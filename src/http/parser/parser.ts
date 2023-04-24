@@ -1,4 +1,4 @@
-import type { Cookie } from "#/types/cookie";
+import type { Cookie } from "#/typing/cookie";
 
 /**
  * Parse cookies from a string separated with semicolon.
