@@ -56,10 +56,10 @@ Parse a HTTP `Cookie` header string of cookies into an array of cookie objects.
 ```ts
 import { httpCookie } from "cookie-muncher";
 
-const cookies = "foo=bar; bar=foo";
+const cookies = "foo=bar; equation=E%3Dmc%5E2";
 
 console.log(httpCookie.parse(cookies));
-// Output: [{ name: "foo", value: "bar" }, { name: "bar", value: "foo" }]
+// Output: [{ name: "foo", value: "bar" }, { name: "equation", value: "E=mc^2" }]
 ```
 
 ### `domCookie.set(cookie: Cookie, options?: DomCookieOptions): void`
