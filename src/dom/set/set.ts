@@ -1,9 +1,11 @@
 import type { Cookie, DomCookieOptions } from "#/typing/cookie";
 import { serializeCookie } from "#/http/serializer";
 import { getByteSize } from "#/utils/string";
-import { cookieMaxByteSize } from "#/utils/cookie";
+import { cookieMaxByteSize, isCookieEnabled } from "#/utils/cookie";
 
 export function setCookie(cookie: Cookie, options: DomCookieOptions = {}): void {
+  isCookieEnabled();
+
   const cookiesCount = document.cookie.split(";").length;
 
   if (cookiesCount > 50) {
