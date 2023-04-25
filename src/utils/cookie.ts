@@ -1,0 +1,1 @@
+export const cookieMaxByteSize = 4096;
