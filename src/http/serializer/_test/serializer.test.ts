@@ -4,7 +4,7 @@ import { serializeCookie } from "../serializer";
 
 describe("serializeCookie", () => {
   it("should return a string with only the cookie name and value when no options are provided", () => {
-    expect(serializeCookie(cookie)).toBe(`${cookieString}; Path=/`);
+    expect(serializeCookie(cookie)).toBe(`${cookieString}; Path=%2F`);
   });
 
   it("should include 'Max-Age' when provided in the options", () => {
@@ -12,7 +12,7 @@ describe("serializeCookie", () => {
       maxAge: 3600
     });
 
-    expect(result).toBe(`${cookieString}; Max-Age=3600; Path=/`);
+    expect(result).toBe(`${cookieString}; Max-Age=3600; Path=%2F`);
   });
 
   it("should include 'Expires' when provided in the options", () => {
@@ -20,7 +20,7 @@ describe("serializeCookie", () => {
       expires: new Date("2023-04-23T23:59:59Z")
     });
 
-    expect(result).toBe(`${cookieString}; Expires=Sun, 23 Apr 2023 23:59:59 GMT; Path=/`);
+    expect(result).toBe(`${cookieString}; Expires=Sun, 23 Apr 2023 23:59:59 GMT; Path=%2F`);
   });
 
   it("should include 'Domain' when provided in the options", () => {
@@ -28,7 +28,7 @@ describe("serializeCookie", () => {
       domain: "example.com"
     });
 
-    expect(result).toBe(`${cookieString}; Domain=example.com; Path=/`);
+    expect(result).toBe(`${cookieString}; Domain=example.com; Path=%2F`);
   });
 
   it("should include 'Path' when provided in the options", () => {
@@ -36,7 +36,7 @@ describe("serializeCookie", () => {
       path: "/path"
     });
 
-    expect(result).toBe(`${cookieString}; Path=/path`);
+    expect(result).toBe(`${cookieString}; Path=%2Fpath`);
   });
 
   it("should include 'Secure' when provided in the options", () => {
@@ -44,7 +44,7 @@ describe("serializeCookie", () => {
       secure: true
     });
 
-    expect(result).toBe(`${cookieString}; Path=/; Secure`);
+    expect(result).toBe(`${cookieString}; Path=%2F; Secure`);
   });
 
   it("should include 'HttpOnly' when provided in the options", () => {
@@ -52,7 +52,7 @@ describe("serializeCookie", () => {
       httpOnly: true
     });
 
-    expect(result).toBe(`${cookieString}; Path=/; HttpOnly`);
+    expect(result).toBe(`${cookieString}; Path=%2F; HttpOnly`);
   });
 
   it("should include 'SameSite' when provided in the options", () => {
@@ -60,7 +60,7 @@ describe("serializeCookie", () => {
       sameSite: "Lax"
     });
 
-    expect(result).toBe(`${cookieString}; Path=/; SameSite=Lax`);
+    expect(result).toBe(`${cookieString}; Path=%2F; SameSite=Lax`);
   });
 
   it("should include all options when provided", () => {
@@ -76,7 +76,7 @@ describe("serializeCookie", () => {
 
     const expected = [
       `${cookieString}; Max-Age=3600; Expires=Sun, 23 Apr 2023 23:59:59 GMT;`,
-      "Domain=example.com; Path=/path; Secure; HttpOnly; SameSite=Lax"
+      "Domain=example.com; Path=%2Fpath; Secure; HttpOnly; SameSite=Lax"
     ].join(" ");
 
     expect(result).toBe(expected);
