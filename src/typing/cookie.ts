@@ -10,7 +10,7 @@ export type Cookie = {
  * @property {string} path - The path for which the cookie is valid
  * @property {boolean} secure - Whether the cookie should only be sent over HTTPS
  * @property {boolean} httpOnly - Whether the cookie should only be accessible via HTTP
- * @property {"Strict" | "Lax" | "None"} sameSite - The same-site policy for the cookie
+ * @property {"strict" | "lax" | "none"} sameSite - The same-site policy for the cookie
  */
 type CookieOptions = {
   maxAge?: number;
@@ -19,7 +19,7 @@ type CookieOptions = {
   path?: string;
   secure?: boolean;
   httpOnly?: boolean;
-  sameSite?: "Strict" | "Lax" | "None";
+  sameSite?: "strict" | "lax" | "none";
 }
 
 export type DomCookieOptions = Omit<CookieOptions, "httpOnly">;

@@ -1,4 +1,5 @@
 import type { Cookie, HttpCookieOptions } from "#/typing/cookie";
+import { capitalizeFirstLetter } from "#/utils/string";
 
 /**
  * Format a string representing a cookie, useful to be able to set a cookie in a HTTP Set-Cookie header.
@@ -12,7 +13,7 @@ export function serializeCookie(cookie: Cookie, options: HttpCookieOptions = {})
   parts.push(`Path=${encodeURIComponent(options.path || "/")}`);
   if (options.secure) parts.push("Secure");
   if (options.httpOnly) parts.push("HttpOnly");
-  if (options.sameSite) parts.push(`SameSite=${options.sameSite}`);
+  if (options.sameSite) parts.push(`SameSite=${capitalizeFirstLetter(options.sameSite)}`);
 
   return parts.join("; ");
 }
