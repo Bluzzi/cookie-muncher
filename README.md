@@ -136,7 +136,7 @@ It's important to exercise caution when setting this attribute to `true` because
 
 It's worth noting that `HttpOnly` cookies are inaccessible to client-side JavaScript, which also means that you cannot create an `HttpOnly` cookie using client-side JavaScript.
 
-> **Info**
+> **Note**
 > This parameter is disabled on the `DomCookieOptions` type.
 
 #### `path`
