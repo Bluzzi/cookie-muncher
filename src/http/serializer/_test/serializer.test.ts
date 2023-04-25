@@ -57,7 +57,7 @@ describe("serializeCookie", () => {
 
   it("should include 'SameSite' when provided in the options", () => {
     const result = serializeCookie(cookie, {
-      sameSite: "Lax"
+      sameSite: "lax"
     });
 
     expect(result).toBe(`${cookieString}; Path=%2F; SameSite=Lax`);
@@ -71,7 +71,7 @@ describe("serializeCookie", () => {
       path: "/path",
       secure: true,
       httpOnly: true,
-      sameSite: "Lax"
+      sameSite: "lax"
     });
 
     const expected = [
