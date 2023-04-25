@@ -9,7 +9,7 @@ export function parseCookies(cookies: string): Cookie[] {
   return cookies.split(";").map(cookie => {
     const [rawName, rawValue] = cookie.split("=");
 
-    const name = decodeURIComponent(rawName.trim());
+    const name = rawName.trim();
     const value = decodeURIComponent(rawValue.trim());
 
     return { name, value };
