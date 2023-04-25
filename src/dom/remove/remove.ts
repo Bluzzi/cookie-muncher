@@ -1,9 +1,9 @@
-import type { DomCookieOptions } from "#/typing/cookie";
+import type { RemoveDomCookieOptions } from "#/typing/cookie";
 import { serializeCookie } from "#/http/serializer";
 import { CookieMaxAge } from "#/utils/duration";
 import { isCookieEnabled } from "#/utils/cookie";
 
-export function removeCookie(name: string, options?: Omit<DomCookieOptions, "maxAge">): void {
+export function removeCookie(name: string, options?: RemoveDomCookieOptions): void {
   isCookieEnabled();
 
   document.cookie = serializeCookie(

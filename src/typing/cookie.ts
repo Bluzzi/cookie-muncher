@@ -24,3 +24,5 @@ type CookieOptions = {
 
 export type DomCookieOptions = Omit<CookieOptions, "httpOnly">;
 export type HttpCookieOptions = CookieOptions;
+
+export type RemoveDomCookieOptions = Pick<CookieOptions, "domain" | "path" | "sameSite">;
