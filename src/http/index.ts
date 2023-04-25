@@ -5,5 +5,3 @@ export const httpCookie = {
   parse: parseCookies,
   serialize: serializeCookie
 };
-
-export { CookieMaxAge } from "./serializer";
