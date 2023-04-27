@@ -37,5 +37,13 @@
   },
   "tsup": {
     "clean": true
-  }
+  },
+  "keywords": [
+    "cookie", "cookies", 
+    "browser", "client", "http", "https",
+    "parser", "serializer",
+    "amd", "cjs", "commonjs", "esm", 
+    "typescript", "typesafe",
+    "rfc6265"
+  ]
 }
