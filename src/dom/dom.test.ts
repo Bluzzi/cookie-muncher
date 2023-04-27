@@ -40,4 +40,31 @@ describe("domCookie functions", () => {
       { name: "bar", value: "foo" }
     ]);
   });
+
+  it("must throw an error when setting a cookie of more than 4096 bytes", () => {
+    // 4096 bytes: large=a*4080; Path=%2F
+    expect(() => setCookie({ name: "large", value: "a".repeat(4080) })).not.toThrowError(
+      "The size of this cookie is greater than 4096 bytes, most browsers limit the number of cookies to this size"
+    );
+
+    // 4097 bytes: large=a*4081; Path=%2F
+    expect(() => setCookie({ name: "large", value: "a".repeat(4081) })).toThrowError(
+      "The size of this cookie is greater than 4096 bytes, most browsers limit the number of cookies to this size"
+    );
+  });
+
+  it("should throw an error when there are more than 50 cookies", () => {
+    // Create 49 cookies:
+    for (let i = 0; i < 49; i++) setCookie({ name: `cookie${i}`, value: `${i}` });
+
+    // 50th cookie:
+    expect(() => setCookie({ name: "bar", value: "foo" })).not.toThrowError(
+      "You have more than 50 cookies, most browsers limit the number of cookies to 50"
+    );
+
+    // 51th cookie:
+    expect(() => setCookie({ name: "foo", value: "bar" })).toThrowError(
+      "You have more than 50 cookies, most browsers limit the number of cookies to 50"
+    );
+  });
 });
