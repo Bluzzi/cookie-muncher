@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@bluzzi/eslint-config": "^1.1.0",
-    "@types/node": "^18.16.1",
+    "@types/node": "^18.16.2",
     "@vitest/ui": "^0.30.1",
     "eslint": "^8.39.0",
     "jsdom": "^21.1.1",
@@ -39,11 +39,20 @@
     "clean": true
   },
   "keywords": [
-    "cookie", "cookies", 
-    "browser", "client", "http", "https",
-    "parser", "serializer",
-    "amd", "cjs", "commonjs", "esm", 
-    "typescript", "typesafe",
+    "cookie",
+    "cookies",
+    "browser",
+    "client",
+    "http",
+    "https",
+    "parser",
+    "serializer",
+    "amd",
+    "cjs",
+    "commonjs",
+    "esm",
+    "typescript",
+    "typesafe",
     "rfc6265"
   ]
 }
