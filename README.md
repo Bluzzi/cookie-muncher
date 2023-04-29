@@ -44,7 +44,7 @@ const cookie: Cookie = {
 const options: HttpCookieOptions = {
   maxAge: CookieMaxAge.TwoWeeks,
   secure: true,
-  sameSite: "Strict",
+  sameSite: "strict",
 };
 
 console.log(httpCookie.serialize(cookie, options));
