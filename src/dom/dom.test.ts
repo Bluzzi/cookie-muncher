@@ -42,13 +42,13 @@ describe("domCookie functions", () => {
   });
 
   it("must throw an error when setting a cookie of more than 4096 bytes", () => {
-    // 4096 bytes: large=a*4080; Path=%2F
-    expect(() => setCookie({ name: "large", value: "a".repeat(4080) })).not.toThrowError(
+    // 4096 bytes: large=a*4082; Path=/
+    expect(() => setCookie({ name: "large", value: "a".repeat(4082) })).not.toThrowError(
       "The size of this cookie is greater than 4096 bytes, most browsers limit the number of cookies to this size"
     );
 
-    // 4097 bytes: large=a*4081; Path=%2F
-    expect(() => setCookie({ name: "large", value: "a".repeat(4081) })).toThrowError(
+    // 4097 bytes: large=a*4083; Path=/
+    expect(() => setCookie({ name: "large", value: "a".repeat(4083) })).toThrowError(
       "The size of this cookie is greater than 4096 bytes, most browsers limit the number of cookies to this size"
     );
   });
