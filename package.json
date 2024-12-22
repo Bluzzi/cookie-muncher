@@ -24,13 +24,13 @@
   },
   "devDependencies": {
     "@bluzzi/eslint-config": "^1.2.1",
-    "@types/node": "^20.11.17",
-    "@vitest/ui": "^1.2.2",
-    "eslint": "^8.56.0",
-    "jsdom": "^24.0.0",
+    "@types/node": "^22.10.2",
+    "@vitest/ui": "^2.1.8",
+    "eslint": "^9.17.0",
+    "jsdom": "^25.0.1",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
-    "vitest": "^1.2.2"
+    "vitest": "^2.1.8"
   },
   "eslintConfig": {
     "extends": "@bluzzi"
