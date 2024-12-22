@@ -26,7 +26,7 @@
     "@bluzzi/eslint-config": "^1.2.1",
     "@types/node": "^22.10.2",
     "@vitest/ui": "^2.1.8",
-    "eslint": "^9.17.0",
+    "eslint": "^8.56.0",
     "jsdom": "^25.0.1",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
