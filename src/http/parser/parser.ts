@@ -8,7 +8,7 @@ export function parseCookies(cookies: string): Cookie[] {
 
   return cookies
     .split(";")
-    .filter(str => (/^[!#$%&'*+\-.^_`|~0-9A-Za-z]+=[\x21\x23-\x2B\x2D\x2E\x30-\x39\x41-\x5A\x5E-\x7E]+$/).test(str))
+    .filter(str => (/^\s*([\w!#$%&'*+\-.^_`|~]+)\s*=\s*([^;]*)\s*$/).test(str) === true)
     .map(cookie => {
       const [rawName, rawValue] = cookie.split("=");
 
