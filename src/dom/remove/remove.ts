@@ -3,7 +3,7 @@ import { serializeCookie } from "#/http/serializer";
 import { CookieMaxAge } from "#/utils/duration";
 import { isCookieEnabled } from "#/utils/cookie";
 
-export function removeCookie(name: string, options?: RemoveDomCookieOptions): void {
+export const removeCookie = (name: string, options?: RemoveDomCookieOptions): void => {
   isCookieEnabled();
 
   document.cookie = serializeCookie(
@@ -13,4 +13,4 @@ export function removeCookie(name: string, options?: RemoveDomCookieOptions): vo
       maxAge: CookieMaxAge.Now,
     },
   );
-}
+};

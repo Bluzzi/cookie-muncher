@@ -1,3 +1,7 @@
+/* eslint-disable ts/prefer-literal-enum-member */
+
+// TODO: Stop using ENUM? (to support NodeJS type-stripping)
+
 export enum CookieMaxAge {
   Now = -1,
   OneHour = 60 * 60, // 1 hour

@@ -3,7 +3,7 @@ import { serializeCookie } from "#/http/serializer";
 import { getByteSize } from "#/utils/string";
 import { cookieMaxByteSize, cookieMaxCount, isCookieEnabled } from "#/utils/cookie";
 
-export function setCookie(cookie: Cookie, options: DomCookieOptions = {}): void {
+export const setCookie = (cookie: Cookie, options: DomCookieOptions = {}): void => {
   isCookieEnabled();
 
   const cookiesCount = document.cookie.split(";").length;
@@ -19,4 +19,4 @@ export function setCookie(cookie: Cookie, options: DomCookieOptions = {}): void 
   }
 
   document.cookie = serializeCookie(cookie, options);
-}
+};
