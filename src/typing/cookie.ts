@@ -1,7 +1,7 @@
 export type Cookie = {
   name: string;
   value: string;
-}
+};
 
 /**
  * @property {number} maxAge - The maximum age of the cookie in seconds
@@ -20,7 +20,7 @@ type CookieOptions = {
   secure?: boolean;
   httpOnly?: boolean;
   sameSite?: "strict" | "lax" | "none";
-}
+};
 
 export type DomCookieOptions = Omit<CookieOptions, "httpOnly">;
 export type HttpCookieOptions = CookieOptions;

@@ -6,13 +6,13 @@ export default defineConfig({
     environment: "jsdom",
     environmentOptions: {
       jsdom: {
-        url: "https://example.com"
-      }
-    }
+        url: "https://example.com",
+      },
+    },
   },
   resolve: {
     alias: [
-      { find: "#", replacement: resolve(__dirname, "src") }
-    ]
-  }
+      { find: "#", replacement: resolve(__dirname, "src") },
+    ],
+  },
 });

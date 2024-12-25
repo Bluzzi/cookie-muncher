@@ -7,5 +7,5 @@ export const domCookie = {
   getAll: getAllCookies,
   get: getCookie,
   set: setCookie,
-  remove: removeCookie
+  remove: removeCookie,
 };

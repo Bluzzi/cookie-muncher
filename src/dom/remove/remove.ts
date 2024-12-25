@@ -10,7 +10,7 @@ export function removeCookie(name: string, options?: RemoveDomCookieOptions): vo
     { name, value: "" },
     {
       ...options,
-      maxAge: CookieMaxAge.Now
-    }
+      maxAge: CookieMaxAge.Now,
+    },
   );
 }

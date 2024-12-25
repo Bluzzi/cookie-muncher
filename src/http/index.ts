@@ -3,5 +3,5 @@ import { serializeCookie } from "./serializer";
 
 export const httpCookie = {
   parse: parseCookies,
-  serialize: serializeCookie
+  serialize: serializeCookie,
 };

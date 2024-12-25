@@ -6,4 +6,4 @@ export * from "#/dom";
 export * from "#/utils/duration";
 
 // Types:
-export * from "#/typing/cookie";
+export type * from "#/typing/cookie";
