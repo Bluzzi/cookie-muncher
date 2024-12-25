@@ -1,0 +1,9 @@
+# Project:
+src
+
+# Configs:
+eslint.config.js
+tsconfig.json
+
+# GitHub:
+.github
