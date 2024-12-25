@@ -24,7 +24,7 @@
     "url": "git+https://github.com/Bluzzi/cookie-muncher.git"
   },
   "devDependencies": {
-    "@bluzzi/eslint-config": "^1.3.1",
+    "@bluzzi/eslint-config": "^1.3.2",
     "@types/node": "^22.10.2",
     "@vitest/ui": "^2.1.8",
     "eslint": "^9.17.0",
