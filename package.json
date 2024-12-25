@@ -1,7 +1,7 @@
 {
   "name": "cookie-muncher",
   "description": "Effortless cookie management for server and browser",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "license": "MIT",
   "author": "Bluzzi",
   "type": "module",
