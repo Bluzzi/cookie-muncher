@@ -1,11 +1,12 @@
 {
   "name": "cookie-muncher",
+  "description": "Effortless cookie management for server and browser",
   "version": "0.4.5",
-  "description": "Effortless cookie management",
-  "author": "Bluzzi",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "author": "Bluzzi",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts --minify --format cjs,esm --clean --dts",
@@ -31,12 +32,6 @@
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vitest": "^2.1.8"
-  },
-  "eslintConfig": {
-    "extends": "@bluzzi"
-  },
-  "tsup": {
-    "clean": true
   },
   "keywords": [
     "cookie",
