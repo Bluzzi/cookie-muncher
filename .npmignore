@@ -4,6 +4,7 @@ src
 # Configs:
 eslint.config.js
 tsconfig.json
+vitest.config.ts
 
 # GitHub:
 .github
