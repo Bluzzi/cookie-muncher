@@ -1,4 +1,4 @@
-/* eslint-disable ts/prefer-literal-enum-member */
+/* eslint-disable @typescript-eslint/prefer-literal-enum-member */
 
 // TODO: Stop using ENUM? (to support NodeJS type-stripping)
 
